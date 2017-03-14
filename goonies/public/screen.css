@@ -1,12 +1,27 @@
 body {
   color: #fbe943;
-  background-image: url('./images/map.png');
+  background-image: url('images/map.png');
   font-family: 'Hoefler Text', 'Palatino', serif;
-  text-align: center;
+}
+
+.others {
+  display: flex;
+  justify-content: space-around;
+}
+
+.originals .goonie {
+  display: flex;
+}
+
+ul,
+ol {
+  text-align: left;
+  width: 16em;
+  margin: auto;
 }
 
 h1 {
-  background-image: url('./images/goonies.png');
+  background-image: url('images/goonies.png');
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
@@ -22,22 +37,15 @@ h2 {
 h2,
 h3 {
   text-shadow: 0.1em 0.1em 0 #1e3896;
-}
-
-ul,
-ol {
-  text-align: left;
-  width: 24em;
-  margin: auto;
+  text-align: center;
 }
 
 img {
   border: 0.2em solid #fbe943;
-  box-shadow: 0.2em 0.2em 0 #1e3896;
 }
 
 hr {
-  border: 0;
+  border: none;
   border-bottom: 0.2em solid #fbe943;
-  box-shadow: 0.1em 0.1em 0 #1e3896;
+  text-shadow: 0.1em 0.1em 0 #1e3896;
 }
