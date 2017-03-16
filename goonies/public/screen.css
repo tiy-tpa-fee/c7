@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Arbutus+Slab|Bangers');
+
 body {
   color: #fbe943;
   background-image: url('images/map.png');
-  font-family: 'Hoefler Text', 'Palatino', serif;
+  font-family: 'Arbutus Slab', serif;
 }
 
 .others {
@@ -9,7 +11,7 @@ body {
   justify-content: space-around;
 }
 
-.originals .goonie {
+.originals > .goonie {
   display: flex;
 }
 
@@ -38,6 +40,9 @@ h2,
 h3 {
   text-shadow: 0.1em 0.1em 0 #1e3896;
   text-align: center;
+  font-family: 'Bangers', cursive;
+  letter-spacing: 0.08em;
+  color: #f29928;
 }
 
 img {
@@ -48,4 +53,37 @@ hr {
   border: none;
   border-bottom: 0.2em solid #fbe943;
   text-shadow: 0.1em 0.1em 0 #1e3896;
+}
+
+a:link {
+  color: #f29928;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #ba7927;
+}
+
+a:focus {
+  color: #ba5327;
+}
+
+a:hover {
+  color: #f2d228;
+}
+
+a:active {
+  color: #ba5327;
+}
+
+h3[title="chunk"] {
+  font-size: 2em;
+}
+
+a[href^="http"] {
+  background-color: pink;
+}
+
+h3::after {
+  content: ' is a Goonie.';
 }

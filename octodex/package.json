@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "deploy": "surge ./public --domain octodex.ambethia.surge.sh",
+    "start": "browser-sync start --server 'public' --files 'public'"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "stylelint": "^7.9.0",
+    "stylelint-config-standard": "^16.0.0",
+    "surge": "^0.18.0"
+  }
+}
