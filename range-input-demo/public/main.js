@@ -1,6 +1,6 @@
 
 const main = () => {
-  const slider = document.querySelector('input.slider')
+  const slider = document.querySelector('input[name=hue]')
   const number = document.querySelector('div.number')
   slider.addEventListener('input', (event) => {
     number.style.color = `hsl(${event.target.value}, 80%, 66%)`
