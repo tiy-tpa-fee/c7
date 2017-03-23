@@ -369,6 +369,18 @@ doubleAndAddTax(35)
 
 ---
 
+```javascript
+ const doubleAndAddTax = (price) => {
+  let result = price * 2
+  result = result * 1.07
+  return result
+}
+
+doubleAndAddTax(35)
+```
+
+---
+
 ^ If we don't tell a function what to return, it returns the value `undefined`, which is different from the string `'undefined'`. Skipping the `return` keyword can be useful if your function isn't meant to return something specific, in which case `undefined` is ok. Nearly all of the functions in this short course are meant to use the `return` keyword, however. For now, don't worry too much about `undefined`, except to know that if your functions are returning `undefined`, you probably forgot the `return` keyword somewhere.
 
 ![fit](https://tiy-learn-content.s3.amazonaws.com/e9f21754-js-mini-return.png)
