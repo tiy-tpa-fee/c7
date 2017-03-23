@@ -1,3 +1,5 @@
+let drops = []
+
 const randomWidth = () => {
   return Math.floor(
     Math.random() * document.body.clientWidth
@@ -5,35 +7,42 @@ const randomWidth = () => {
 }
 
 const makeDrop = () => {
-  // Ask the document to create a <div>
-  let drop = document.createElement('div')
-  // Assign that <div> the class 'drop':  <div class="drop"></div>
-  drop.className = 'drop'
-  // Give it a random horizontal position
-  drop.style.left = randomWidth()
-  drop.style.top = '10px'
-  // Get a reference to the <div class="drops">...</div>
-  const drops = document.querySelector('.drops')
-  // Append our "drop" div to the "drops"
-  drops.appendChild(drop)
+  drops.push({
+    top: 0,
+    left: randomWidth(),
+    speed: Math.random()
+  })
 }
 
 const moveDrops = () => {
-  const parent = document.querySelector('.drops')
-  const drops = document.querySelectorAll('.drop')
   for (let i = 0; i < drops.length; i++) {
-    let top = Number(drops[i].style.top.replace('px', ''))
-    top += 1
+    let top = drops[i].top + drops[i].speed + 1
     if (top > document.body.clientHeight) {
-      parent.removeChild(drops[i])
+      drops.splice(i, 1)
+    } else {
+      drops[i].top = top
     }
+  }
+}
 
-    drops[i].style.top = top + 'px'
+const drawDrops = () => {
+  const dropDiv = document.querySelector('.drops')
+  while (dropDiv.firstChild) { dropDiv.removeChild(dropDiv.firstChild) }
+
+  for (let i = 0; i < drops.length; i++) {
+    let drop = document.createElement('div')
+    drop.className = 'drop'
+    drop.style.left = drops[i].left
+    drop.style.top = drops[i].top + 'px'
+    let scale = (1 + drops[i].speed) / 2
+    drop.style.transform = `scale(${scale})`
+    dropDiv.appendChild(drop)
   }
 }
 
 const main = () => {
   window.setInterval(moveDrops, 30 / 1000)
+  window.setInterval(drawDrops, 30 / 1000)
   document.querySelector('button')
     .addEventListener('click', makeDrop)
 }

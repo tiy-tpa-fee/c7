@@ -24,13 +24,38 @@ body {
 }
 
 .drop {
-  height: 22px;
-  width: 16px;
-  background-color: hsl(0, 0%, 100%);
+  background-image: url('images/rain-drop.svg');
+  height: 43px;
+  width: 27px;
   position: absolute;
   top: 0;
 }
 
 button {
+  font-family: 'Skia', sans-serif;
+  font-weight: bold;
+  font-size: 2em;
   margin-bottom: 10vh;
+  border: 5px solid white;
+  border-radius: 5px;
+  background-color: hsl(201, 63%, 39%);
+  text-shadow: 2px 2px 0 hsl(200, 69%, 24%);
+  box-shadow: 2px 2px 0 hsl(200, 69%, 24%);
+  color: white;
+  transition: all 50ms linear;
+}
+
+button:focus {
+  outline: none;
+  border-color: hsl(199, 58%, 87%);
+}
+
+button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 4px 4px 0 hsl(200, 69%, 24%);
+}
+
+button:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0.1em hsl(200, 69%, 24%);
 }
