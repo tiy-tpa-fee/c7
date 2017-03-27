@@ -1,0 +1,27 @@
+$base-text-size: 16px;
+$base-font-family: sans-serif;
+$standard-spacing: 1em;
+$primary-text-color: #fff;
+$background-color: #8a1580;
+$link-color: #27bfda;
+
+@mixin rounded-corners {
+  border: thin solid $primary-text-color;
+  border-radius: 4px;
+}
+
+@mixin reset-list {
+  padding-left: 0;
+
+  li {
+    list-style: none;
+  }
+}
+
+@mixin full-height {
+  height: 100%;
+
+  body {
+    min-height: 100%;
+  }
+}
