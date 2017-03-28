@@ -19,18 +19,19 @@ const fibbonacci = (n) => {
 }
 
 const main = () => {
-  const button = document.querySelector('button')
   const input = document.querySelector('input')
   const list = document.querySelector('ul.fibbs')
 
-  button.addEventListener('click', () => {
+  input.addEventListener('input', () => {
     const upto = Number(input.value)
     const seq = fibbonacci(upto)
     while (list.firstChild) list.removeChild(list.firstChild)
     seq.forEach((n, i) => {
       const li = document.createElement('li')
       const hue = Math.round((i / upto) * 360)
+      const width = Math.round((i / upto) * 200)
       li.style.backgroundColor = `hsl(${hue}, 100%, 50%)`
+      li.style.width = `${width}px`
       li.textContent = n
       list.appendChild(li)
     })
