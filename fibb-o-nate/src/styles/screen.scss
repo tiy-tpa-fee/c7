@@ -1,0 +1,32 @@
+@import 'utility';
+
+body {
+  background-color: #333;
+}
+
+main {
+  text-align: center;
+  padding: 2em;
+
+  input,
+  button {
+    font-size: 1.4em;
+  }
+}
+
+ul.fibbs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  list-style: none;
+
+  li {
+    display: inline;
+    margin: 0.1em;
+    padding: 0.2em;
+    font-family: monospace;
+    color: #fff;
+    text-shadow: 1px 1px 0 #333;
+    border-radius: 2px;
+  }
+}
