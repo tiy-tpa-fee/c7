@@ -1,0 +1,37 @@
+html {
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font: 16px / 1 sans-serif;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body:not(.modal) .overlay {
+  display: none;
+}
+
+body.modal main {
+  filter: blur(5px);
+}
+
+.dialog {
+  background-color: white;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 20px #333;
+}
