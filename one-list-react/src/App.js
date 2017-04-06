@@ -1,47 +1,44 @@
 import React from 'react'
+import List from './List'
 
 class App extends React.Component {
 
   state = {
-    plants: []
+    items: [
+      { label: 'Learn JavaScript Syntax', done: true },
+      { label: 'Learn React', done: false },
+    ],
+  }
+
+  addItem (newItem) {
+    this.setState({
+      // items: this.state.items.concat(newItem)
+      items: [...this.state.items, { label: newItem, done: false }],
+    })
+  }
+
+  toggleComplete = (index) => {
+    const newItems = this.state.items.slice()
+    newItems[index].done = !newItems[index].done
+    this.setState({ items: newItems })
   }
 
   _submit = (event) => {
     event.preventDefault()
-    this.setState({
-      plants: [...this.state.plants, {
-        label: this.refs.todoText.value,
-        done: false
-      }]
-    })
-    this.refs.todoText.value = ''
-  }
-
-  markComplete (index) {
-    const newItems = this.state.plants.slice()
-    newItems[index].done = !newItems[index].done
-    this.setState({ plants: newItems })
+    const input = this.refs.todoText
+    this.addItem(input.value)
+    input.value = ''
   }
 
   render () {
-
-    const plantItems = this.state.plants.map((plant, i) => {
-      return <li
-        onClick={() => this.markComplete(i)}
-        className={plant.done ? 'completed' : ''}
-        key={i}>
-        {plant.label}
-      </li>
-    })
-
     return <div className="App">
       <header>
         <h1>One List</h1>
       </header>
       <main>
-        <ul className="one-list">
-          {plantItems}
-        </ul>
+        <List
+          items={this.state.items}
+          toggleComplete={this.toggleComplete} />
         <form onSubmit={this._submit}>
           <input type="text" ref="todoText" />
         </form>
