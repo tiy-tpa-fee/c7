@@ -10,39 +10,56 @@ html {
 body {
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
+  background-color: hsl(166, 18%, 75%);
+  color: hsl(354, 87%, 12%);
 }
 
 .memroy {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .card {
-  width: 100px;
-  height: 100px;
-  font-size: 72px;
+  width: 20vw;
+  height: 20vw;
+  font-size: 14vw;
   text-align: center;
+  line-height: 21vw;
   border-radius: 4px;
-  margin: 10px;
+  margin: 2vw;
+  transition: all 500ms ease;
+  box-shadow: 4px 4px 0 hsla(0, 0%, 0%, 0.5);
 
-  &.down {
-    background-color: lightgreen;
+  &:not(.up) {
+    background-color: hsl(93, 40%, 45%);
     color: transparent;
   }
 
   &.up {
-    background-color: orange;
+    background-color: hsl(43, 90%, 87%);
+  }
+
+  &.matched.up {
+    transform: scale(1.25);
+    box-shadow: 0 0 0 hsla(0, 0%, 0%, 0);
   }
 
   &.matched:not(.up) {
-    opacity: 0.2;
+    opacity: 0;
+    pointer-events: none;
+    transform: scale(2) rotate(180deg);
+  }
+
+  &:active {
+    transform: translate(4px, 4px);
+    transition: transform 200ms ease-in;
+    box-shadow: 0 0 0 hsla(0, 0%, 0%, 0.5);
   }
 }
 
 .box {
   display: flex;
   justify-content: center;
-  align-items: center;
-  flex: 1;
   flex-wrap: wrap;
 }

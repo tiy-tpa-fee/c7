@@ -3,16 +3,17 @@ import Card from './Card'
 
 class App extends Component {
   state = {
-    matched: [],
+    faces: ['🤖', '🐢', '🐼', '🐙', '👾', '👹', '🐢', '👾', '😱', '🤖', '🐲', '🐙', '😱', '👹', '🐼', '🐲'],
     picks: [],
-    faces: ['🤖', '🐢', '🐼', '🐙', '👾', '👹', '🐢', '👾', '😱', '🤖', '🐲', '🐙', '😱', '👹', '🐼', '🐲']
+    matched: []
   }
 
   choose = (positionOfCard) => {
-    if (this.state.picks.includes(positionOfCard) || this.state.matched.includes(positionOfCard)) return
-    if (this.state.picks.length < 2) {
+    const { picks, matched } = this.state
+    if (picks.includes(positionOfCard) || matched.includes(positionOfCard)) return
+    if (picks.length < 2) {
       this.setState({
-        picks: [...this.state.picks, positionOfCard]
+        picks: [...picks, positionOfCard]
       }, () => {
         if (this.state.picks.length === 2) {
           this.check()
@@ -22,14 +23,17 @@ class App extends Component {
   }
 
   check = () => {
-    if (this.state.faces[this.state.picks[0]] === this.state.faces[this.state.picks[1]]) {
+    const { faces, picks, matched } = this.state
+    if (faces[picks[0]] === faces[picks[1]]) {
       this.setState({
-        matched: [...this.state.picks, ...this.state.matched]
+        matched: [...picks, ...matched]
+      }, () => {
+        if (faces.length === this.state.matched.length) {
+          this.gameOver()
+        }
       })
-      if (this.state.faces.length === this.state.matched.length) {
-        this.gameOver()
-      }
     }
+    console.log('CHECK!')
     window.setTimeout(() => {
       this.setState({
         picks: []
@@ -47,8 +51,16 @@ class App extends Component {
   }
 
   render () {
-    const cards = this.state.faces.map((face, i) => {
-      return <Card content={face} matched={this.state.matched.includes(i)} up={this.state.picks.includes(i)} choose={this.choose} position={i} key={i} />
+    const { faces, picks, matched } = this.state
+    const cards = faces.map((face, i) => {
+      return <Card
+        content={face}
+        matched={matched.includes(i)}
+        up={picks.includes(i)}
+        choose={this.choose}
+        position={i}
+        key={i}
+      />
     })
 
     return <div className='memroy'>

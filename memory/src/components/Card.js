@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import cx from 'classnames'
 
 class Card extends Component {
   _click = () => {
@@ -6,9 +7,8 @@ class Card extends Component {
   }
 
   render () {
-    let toggle = this.props.up ? 'up' : 'down'
-    let matched = this.props.matched ? 'matched' : ''
-    return <div className={`card ${toggle} ${matched}`} onClick={this._click}>
+    const { up, matched } = this.props
+    return <div className={cx('card', { up, matched })} onClick={this._click}>
       {this.props.content}
     </div>
   }
