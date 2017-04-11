@@ -11,3 +11,38 @@ body {
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
 }
+
+.memroy {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  font-size: 72px;
+  text-align: center;
+  border-radius: 4px;
+  margin: 10px;
+
+  &.down {
+    background-color: lightgreen;
+    color: transparent;
+  }
+
+  &.up {
+    background-color: orange;
+  }
+
+  &.matched:not(.up) {
+    opacity: 0.2;
+  }
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-wrap: wrap;
+}
