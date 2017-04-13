@@ -6,8 +6,8 @@ class List extends Component {
   render () {
     const items = this.props.items.map((item, i) => {
       return <Item
-        label={item.label}
-        done={item.done}
+        label={item.text}
+        done={item.complete}
         toggleComplete={this.props.toggleComplete}
         index={i}
         key={i} />

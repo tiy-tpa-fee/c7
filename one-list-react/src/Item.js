@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 class Item extends Component {
   _click = () => {
-    console.log('you clicked me')
     this.props.toggleComplete(this.props.index)
   }
 
