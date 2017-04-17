@@ -1,0 +1,15 @@
+.CharacterList {
+  list-style: none;
+  padding-left: 0;
+  min-width: 180px;
+  text-align: right;
+  margin-right: 1em;
+
+  li {
+    margin: 0.5em 0;
+  }
+}
+
+.active {
+  color: #fdb825;
+}
