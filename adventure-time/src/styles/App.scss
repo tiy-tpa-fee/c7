@@ -7,12 +7,23 @@
   background-repeat: no-repeat;
   color: transparent;
   text-shadow: none;
+
+  a {
+    color: transparent;
+    display: block;
+    height: 100%;
+    width: 100%;
+  }
 }
 
 .App > section {
   display: flex;
   max-width: 640px;
   margin: auto;
+
+  main {
+    flex: 1;
+  }
 }
 
 .App > footer {

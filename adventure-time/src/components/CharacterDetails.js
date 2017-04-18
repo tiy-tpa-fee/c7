@@ -2,11 +2,36 @@ import React, { Component } from 'react'
 import styles from '../styles/CharacterDetails.scss'
 
 class CharacterDetails extends Component {
+  state = {
+    title: '',
+    image: '',
+    details: ''
+  }
+
+  updateCharacter () {
+    const id = this.props.match.params.id
+    window.fetch(`/characters/${id}.json`)
+    .then(res => res.json())
+    .then(data => {
+      this.setState({
+        ...data
+      })
+    })
+  }
+
+  componentDidMount () {
+    this.updateCharacter()
+  }
+
+  componentDidUpdate () {
+    this.updateCharacter()
+  }
+
   render () {
     return <div className={styles.CharacterDetails}>
-      <h2 className={styles.title}>Finn the Human</h2>
-      <img src='http://i.cdn.turner.com/v5cache/CARTOON/site/Images/i18/propd_at_char_finn.png' alt='Finn the Human' />
-      <p>Finn is a silly kid who wants to become a great hero one day. He might not look too tough, but if there's evil around, he'll slay it. That's his deal.</p>
+      <h2 className={styles.title}>{this.state.name}</h2>
+      <img src={this.state.image} alt={this.state.name} />
+      <p>{this.state.details}</p>
     </div>
   }
 }

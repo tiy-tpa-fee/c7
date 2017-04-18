@@ -44,16 +44,17 @@ class App extends React.Component {
   }
 
   toggleComplete = (index) => {
+    // Make a copy of the items
     const newItems = this.state.items.slice()
-    newItems[index].complete = !newItems[index].complete
-    const id = newItems[index].id
-    const url = `https://one-list-api.herokuapp.com/items/${id}?access_token=tolkien`
+    const item = newItems[index]
+    item.complete = !item.complete
+    const url = `https://one-list-api.herokuapp.com/items/${item.id}?access_token=tolkien`
     window.fetch(url, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
         item: {
-          complete: newItems[index].complete
+          complete: item.complete
         }
       })
     }).then(() => {

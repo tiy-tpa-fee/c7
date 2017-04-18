@@ -8,8 +8,20 @@
   li {
     margin: 0.5em 0;
   }
-}
 
-.active {
-  color: #fdb825;
+  a {
+    &:link,
+    &:visited {
+      color: white;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: lighten(#fdb825, 20%);
+    }
+
+    &.active {
+      color: #fdb825;
+    }
+  }
 }

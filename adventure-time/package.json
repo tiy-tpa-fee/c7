@@ -36,6 +36,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-hot-loader": "next",
+    "react-router-dom": "^4.1.1",
     "redbox-react": "^1.3.6",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
