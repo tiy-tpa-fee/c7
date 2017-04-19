@@ -10,13 +10,16 @@ class CharacterDetails extends Component {
 
   updateCharacter () {
     const id = this.props.match.params.id
-    window.fetch(`/characters/${id}.json`)
-    .then(res => res.json())
-    .then(data => {
-      this.setState({
-        ...data
+    if (id !== this.state.id) {
+      window.fetch(`/characters/${id}.json`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          ...data,
+          id
+        })
       })
-    })
+    }
   }
 
   componentDidMount () {
