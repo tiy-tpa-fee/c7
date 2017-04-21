@@ -1,8 +1,5 @@
 @import 'utility';
 
-$base-text-size: 16px;
-$base-font-family: sans-serif;
-
 html {
   @include full-height;
 }
@@ -10,4 +7,74 @@ html {
 body {
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
+}
+
+a {
+  &:link,
+  &:visited {
+    color: $link-color;
+    text-decoration: none;
+  }
+
+  &:focus,
+  &:hover {
+    color: $link-color-hover;
+  }
+
+  &:active {
+    color: $link-color-active;
+  }
+}
+
+.App {
+  max-width: 720px;
+  padding: 1em;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  ul {
+    @include reset-list;
+
+    display: flex;
+    justify-content: space-around;
+    text-transform: uppercase;
+
+    a.active {
+      color: hsl(208, 89%, 32%);
+    }
+  }
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Home {
+  text-align: center;
+
+  .random ul {
+    @include reset-list;
+
+    display: flex;
+    justify-content: center;
+
+    li {
+      padding: 1em;
+    }
+  }
 }

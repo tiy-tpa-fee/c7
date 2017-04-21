@@ -1,6 +1,10 @@
 $base-text-size: 16px;
 $base-font-family: sans-serif;
 
+$link-color: hsl(71, 92%, 44%);
+$link-color-hover: hsl(220, 88%, 38%);
+$link-color-active: hsl(2, 62%, 55%);
+
 // Remove the browsers built-in styling for lists elements.
 @mixin reset-list {
   padding-left: 0;
@@ -16,7 +20,9 @@ $base-font-family: sans-serif;
   height: 100%;
 
   body,
-  #root {
-    min-height: 100%;
+  #root,
+  #root > div {
+    box-sizing: border-box;
+    min-height: 100vh;
   }
 }
