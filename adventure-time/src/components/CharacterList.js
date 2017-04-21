@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, withRouter } from 'react-router-dom'
 import styles from '../styles/CharacterList.scss'
 
 class CharacterList extends Component {
   state = {
     characters: []
+  }
+
+  _click = () => {
+    this.props.history.push('/')
   }
 
   componentDidMount () {
@@ -30,8 +34,9 @@ class CharacterList extends Component {
 
     return <ul className={styles.CharacterList}>
       {characters}
+      <li><button onClick={this._click}>Home</button></li>
     </ul>
   }
 }
 
-export default CharacterList
+export default withRouter(CharacterList)

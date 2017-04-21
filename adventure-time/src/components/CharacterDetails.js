@@ -33,6 +33,7 @@ class CharacterDetails extends Component {
   render () {
     return <div className={styles.CharacterDetails}>
       <h2 className={styles.title}>{this.state.name}</h2>
+      <h3>{this.props.foo}</h3>
       <img src={this.state.image} alt={this.state.name} />
       <p>{this.state.details}</p>
     </div>
