@@ -1,50 +1,47 @@
 import React from 'react'
+import { observer } from 'mobx-react'
+import store from '../../store'
 import PropTypes from 'prop-types'
 import style from './style.sass'
 
+@observer
 class UnitView extends React.Component {
   static propTypes = {
-    unit: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    summary: PropTypes.string.isRequired,
-    cost: PropTypes.number.isRequired,
-    attack: PropTypes.number.isRequired,
-    health: PropTypes.number.isRequired,
-    army: PropTypes.object.isRequired,
-    addUnit: PropTypes.func.isRequired,
-    removeUnit: PropTypes.func.isRequired
+    unit: PropTypes.string.isRequired
   }
 
   _increment = () => {
-    this.props.addUnit(this.props.unit)
+    store.addUnit(this.props.unit)
   }
 
   _decrement = () => {
-    this.props.removeUnit(this.props.unit)
+    store.removeUnit(this.props.unit)
   }
 
   render () {
+    const { unit } = this.props
+    const info = store.info[unit]
     return <tr className={style.unit}>
       <td className={style.info}>
-        <h4>{this.props.name}</h4>
-        <p>{this.props.summary}</p>
+        <h4>{info.name}</h4>
+        <p>{info.summary}</p>
         <dl>
           <dt>Cost</dt>
-          <dd className={style.cost}>{this.props.cost}</dd>
+          <dd className={style.cost}>{info.cost}</dd>
           <dt>Attack</dt>
-          <dd className={style.attack}>{this.props.attack}</dd>
+          <dd className={style.attack}>{info.attack}</dd>
           <dt>Health</dt>
-          <dd className={style.health}>{this.props.health}</dd>
+          <dd className={style.health}>{info.health}</dd>
         </dl>
       </td>
       <td className={style.count}>
-        &times;{this.props.army[this.props.unit]}
+        &times;{store.army[unit]}
       </td>
       <td className={style.add}>
-        <button onClick={this._increment}>+</button>
+        <button onClick={this._increment} disabled={!store.canAdd(unit)}>+</button>
       </td>
       <td className={style.remove}>
-        <button onClick={this._decrement}>-</button>
+        <button onClick={this._decrement} disabled={!store.canRemove(unit)}>-</button>
       </td>
     </tr>
   }

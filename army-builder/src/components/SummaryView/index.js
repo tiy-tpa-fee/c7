@@ -1,24 +1,21 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { observer } from 'mobx-react'
+import store from '../../store'
 import { PanelView } from '..'
-import unitData from '../../units.json'
 import style from './style.sass'
 
+@observer
 class SummaryView extends React.Component {
-  static propTypes = {
-    army: PropTypes.object.isRequired
-  }
-
   render () {
-    const units = Object.keys(this.props.army).filter(unit => this.props.army[unit] > 0)
+    const units = Object.keys(store.army).filter(unit => store.army[unit] > 0)
     let list
     if (units.length > 0) {
       list = <ul>
         {units.map((unit, i) => {
           return <li key={i}>
-            {unitData[unit].name}
+            {store.info[unit].name}
             <span className={style.count}>
-              &times;{this.props.army[unit]}
+              &times;{store.army[unit]}
             </span>
           </li>
         })}

@@ -1,4 +1,3 @@
-export App from './App'
 export AppView from './AppView'
 export PanelView from './PanelView'
 export ResourcesView from './ResourcesView'

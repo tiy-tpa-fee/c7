@@ -1,27 +1,15 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import { observer } from 'mobx-react'
+import store from '../../store'
 import { PanelView, UnitView } from '..'
 import style from './style.sass'
-import units from '../../units.json'
 
+@observer
 class UnitListView extends React.Component {
-  static propTypes = {
-    army: PropTypes.object.isRequired,
-    addUnit: PropTypes.func.isRequired,
-    removeUnit: PropTypes.func.isRequired
-  }
-
   render () {
-    const unitViews = Object.keys(units).map((key, i) => {
-      return <UnitView
-        {...units[key]}
-        unit={key}
-        army={this.props.army}
-        addUnit={this.props.addUnit}
-        removeUnit={this.props.removeUnit}
-        key={i}
-      />
-    })
+    const unitViews = Object.keys(store.info).map(unit => (
+      <UnitView unit={unit} key={unit} />
+    ))
     return <PanelView title='Units' className={style.unitList}>
       <table cellSpacing='0'>
         <tbody>
