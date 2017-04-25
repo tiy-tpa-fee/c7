@@ -1,0 +1,15 @@
+@import 'utility';
+
+$base-text-size: 16px;
+$base-font-family: sans-serif;
+
+html {
+  @include full-height;
+}
+
+body {
+  margin: 0;
+  background-color: $body-color;
+  color: $text-color;
+  font: $base-text-size / 1 $base-font-family;
+}

@@ -1,0 +1,19 @@
+@import ../../styles/utility
+
+.resources
+
+  ul
+    list-style: none
+    padding-left: 0
+    display: flex
+    justify-content: space-around
+
+    li
+      font-weight: lighter
+
+      &.gold::before
+        padding-top: 0.2rem
+        content: '💰 '
+
+      &.resources::before
+        content: '👥 '

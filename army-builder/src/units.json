@@ -1,0 +1,30 @@
+{
+  "footman": {
+    "name": "Footman",
+    "summary": "Basic infantry unit",
+    "cost": 120,
+    "attack": 7,
+    "health": 50
+  },
+  "archer": {
+    "name": "Archer",
+    "summary": "Ranged unit, strong vs light armor",
+    "cost": 140,
+    "attack": 5,
+    "health": 40
+  },
+  "pikeman": {
+    "name": "Pikeman",
+    "summary": "Spear-wielding light infantry, strong vs cavalry",
+    "cost": 150,
+    "attack": 5,
+    "health": 60
+  },
+  "knight": {
+    "name": "Knight",
+    "summary": "Heavy-armored cavalry unit, strong vs ranged",
+    "cost": 260,
+    "attack": 12,
+    "health": 160
+  }
+}

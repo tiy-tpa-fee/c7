@@ -1,0 +1,56 @@
+@import ../../styles/utility
+
+.unit
+
+  &:not(:first-child)
+    td
+      border-top: 2px solid $border-color
+      padding-top: $gutter-size
+
+  h4
+    margin: 0
+    font-weight: 800
+
+    &+ p
+      margin-top: 0
+      font-style: italic
+      line-height: 1rem
+
+  dl
+    font-size: 0.8rem
+    line-height: 0.8rem
+    font-variant: small-caps
+
+  dt, dd
+    display: inline
+    margin: 0
+
+  dt
+    font-weight: bold
+    text-transform: lowercase
+    font-size: 0.9rem
+
+    &::after
+      content: ': '
+
+  dd
+    font-weight: lighter
+
+    &::after
+      content: '\A'
+      white-space: pre
+
+  dd.cost::after
+    content: ' 💰\A'
+
+  dd.attack::after
+    content: ' ⚔\A'
+
+  dd.health::after
+    content: ' 💚\A'
+
+  td
+    vertical-align: top
+
+.count, .add, .remove
+  width: 1.5em
