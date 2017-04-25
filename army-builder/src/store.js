@@ -26,12 +26,10 @@ class Store {
 
   addUnit (unit) {
     this.army[unit]++
-    this.army = { ...this.army }
   }
 
   removeUnit (unit) {
     this.army[unit]--
-    this.army = { ...this.army }
   }
 
   canAdd (unit) {
