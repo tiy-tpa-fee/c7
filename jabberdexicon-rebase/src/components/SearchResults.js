@@ -1,6 +1,8 @@
 import React from 'react'
 import { PageHeader } from 'rebass'
+import { observer } from 'mobx-react'
 import WordList from './WordList'
+import entries from '../stores/entries'
 
 const SearchResults = ({ match }) =>
   <div className='Browse'>
@@ -8,15 +10,7 @@ const SearchResults = ({ match }) =>
       heading={`Search results for "${match.params.query}"`}
       m={1}
     />
-    <WordList entries={[{
-      id: 1,
-      term: 'Yoda Conditions',
-      slug: '1-yoda-conditions'
-    }, {
-      id: 2,
-      term: 'Foo',
-      slug: '2-foo'
-    }]} />
+    <WordList entries={entries.search(match.params.query)} />
   </div>
 
-export default SearchResults
+export default observer(SearchResults)

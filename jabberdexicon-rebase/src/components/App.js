@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Link, Route, Switch } from 'react-router-dom'
+import { observer } from 'mobx-react'
 import {
   Button,
   Footer,
@@ -19,16 +20,13 @@ import SearchResults from './SearchResults'
 import Entry from './Entry'
 
 import theme from './theme'
+import ui from '../stores/ui'
+import entries from '../stores/entries'
 
+@observer
 class App extends Component {
-  state = {
-    modal: false
-  }
-
   _toggle = () => {
-    this.setState({
-      modal: !this.state.modal
-    })
+    ui.modal = !ui.modal
   }
 
   static childContextTypes = {
@@ -41,6 +39,10 @@ class App extends Component {
     }
   }
 
+  componentDidMount () {
+    entries.loadAll()
+  }
+
   render () {
     return <Router>
       <div className='App'>
@@ -51,7 +53,7 @@ class App extends Component {
             <SearchForm />
           </NavItem>
         </Toolbar>
-        <main style={{ maxWidth: '720px', margin: 'auto' }}>
+        <main style={{ maxWidth: '720px', margin: 'auto', padding: '1em' }}>
           <BrowseByLetter />
           <Switch>
             <Route exact path='/' component={Home} />
@@ -62,10 +64,10 @@ class App extends Component {
           <Footer m={1}>
             <Text>Built with &hearts; at The Iron Yard in Saint Petersburg, FL.</Text>
             <Space auto />
-            <Button onClick={this._toggle}>Add new Entry</Button>
+            <Button onClick={this._toggle}>New Entry</Button>
           </Footer>
         </main>
-        <Overlay open={this.state.modal}>
+        <Overlay open={ui.modal}>
           <NewEntry onDismiss={this._toggle} />
         </Overlay>
       </div>

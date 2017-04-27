@@ -1,6 +1,8 @@
 import React from 'react'
 import { PageHeader } from 'rebass'
+import { observer } from 'mobx-react'
 import WordList from './WordList'
+import entries from '../stores/entries'
 
 const Browse = ({ match }) =>
   <div className='Browse'>
@@ -8,15 +10,7 @@ const Browse = ({ match }) =>
       heading={match.params.letter.toUpperCase()}
       m={1}
     />
-    <WordList entries={[{
-      id: 1,
-      term: 'Yoda Conditions',
-      slug: '1-yoda-conditions'
-    }, {
-      id: 2,
-      term: 'Foo',
-      slug: '2-foo'
-    }]} />
+    <WordList entries={entries.filter(match.params.letter)} />
   </div>
 
-export default Browse
+export default observer(Browse)

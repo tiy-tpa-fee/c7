@@ -1,15 +1,31 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { observer } from 'mobx-react'
 import { Block, PageHeader } from 'rebass'
+import entries from '../stores/entries'
 
-const Entry = () =>
-  <div className='Entry'>
-    <PageHeader
-      heading='Yoda Conditions'
-      m={1}
-    />
-    <Block borderLeft px={2}>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-    </Block>
-  </div>
+@observer
+class Entry extends Component {
+  componentDidMount () {
+    entries.load(this.props.match.params.slug)
+  }
+
+  componentDidUpdate (prevProps) {
+    if (prevProps.match.params.slug !== this.props.match.params.slug) {
+      entries.load(this.props.match.params.slug)
+    }
+  }
+
+  render () {
+    const entry = entries.current
+    if (entry) {
+      return <div className='Entry'>
+        <PageHeader heading={entry.term} m={1} />
+        <Block borderLeft px={2} dangerouslySetInnerHTML={{__html: entry.formatted_definition}} />
+      </div>
+    } else {
+      return <PageHeader heading='Loading...' m={1} />
+    }
+  }
+}
 
 export default Entry
