@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Block, Heading, Text } from 'rebass'
 
-const WordOfTheDay = () =>
+const WordOfTheDay = ({ term }) =>
   <Block borderLeft px={3} color='primary'>
     <Heading level={3} alt>Word of the Day</Heading>
     <Heading level={3} size={1}>

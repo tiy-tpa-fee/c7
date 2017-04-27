@@ -2,11 +2,13 @@ import React from 'react'
 import {
   Button,
   Close,
+  Input,
   Panel,
   PanelFooter,
   PanelHeader,
   Space,
-  Text
+  Text,
+  Textarea
 } from 'rebass'
 
 const NewEntry = ({ onDismiss }) =>
@@ -20,9 +22,10 @@ const NewEntry = ({ onDismiss }) =>
         <Space auto />
         <Close onClick={onDismiss} />
       </PanelHeader>
-      <Text>
-        Panels are great for visually separating UI, content, or data from the rest of the page.
-      </Text>
+      <form action='#'>
+        <Input name='term' label='Term' />
+        <Textarea name='definition' label='Definition' />
+      </form>
       <PanelFooter theme='default'>
         <Button>Submit</Button>
       </PanelFooter>
