@@ -32,6 +32,8 @@ table {
     height: 1em;
     width: 1em;
     border: thin solid #666;
+    text-align: center;
+    line-height: 1em;
 
     &.unrevealed {
       background-color: hsl(0, 0%, 85%);
@@ -117,4 +119,19 @@ table {
       }
     }
   }
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  height: 180px;
+  width: 200px;
+  text-align: center;
+  top: calc(50% - 90px);
+  left: calc(50% - 100px);
+  background-color: white;
+  border: thick solid #666;
 }

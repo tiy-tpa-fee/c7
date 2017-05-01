@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { observer } from 'mobx-react'
 import game from '../game'
 
 // Create a mapping of the symbols from the API to
@@ -22,6 +23,7 @@ const CLASSNAMES = {
   '8': 'numbered-8'
 }
 
+@observer
 class Game extends Component {
   componentDidMount () {
     // Get the ID paramter from the URL (via Router)
@@ -29,7 +31,23 @@ class Game extends Component {
     game.load(id)
   }
 
+  _reset = () => {
+    game.id = null
+    this.props.history.push('/')
+  }
+
   render () {
+    // conditionally render a modal...
+    let modal
+
+    // game.state === 'won' || game.state === 'lost'
+    if (['lost', 'won'].includes(game.state)) {
+      modal = <div className='modal'>
+        <h1>You {game.state}!</h1>
+        <button onClick={this._reset}>Play Again?</button>
+      </div>
+    }
+
     return <div className='Game'>
       <table>
         <tbody>
@@ -38,12 +56,24 @@ class Game extends Component {
           {game.board.map((row, y) => (
             <tr key={y}>
               {row.map((col, x) => (
-                <td className={CLASSNAMES[col]} key={x} />
+                <td
+                  className={CLASSNAMES[col]}
+                  onContextMenu={e => {
+                    e.preventDefault()
+                    game.flag(x, y)
+                  }}
+                  onClick={() => {
+                    game.check(x, y)
+                  }}
+                  key={x}
+                />
               ))}
             </tr>
           ))}
         </tbody>
       </table>
+      <h3>Remaining Mines: {game.mines}</h3>
+      {modal}
     </div>
   }
 }
