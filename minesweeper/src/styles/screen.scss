@@ -1,0 +1,120 @@
+@import 'utility';
+
+$base-text-size: 16px;
+$base-font-family: sans-serif;
+
+html {
+  @include full-height;
+}
+
+body {
+  margin: 0;
+  font: $base-text-size / 1 $base-font-family;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+table {
+  border: thin solid #666;
+
+  td {
+    height: 1em;
+    width: 1em;
+    border: thin solid #666;
+
+    &.unrevealed {
+      background-color: hsl(0, 0%, 85%);
+    }
+
+    &.empty {
+      background-color: hsl(0, 0%, 100%);
+    }
+
+    &.flagged {
+      background-color: hsl(27, 100%, 42%);
+    }
+
+    &.bomb {
+      background-color: hsl(0, 100%, 11%);
+    }
+
+    &.flagged-bomb {
+      background-color: hsl(122, 100%, 26%);
+    }
+
+    &.numbered-1 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '1';
+      }
+    }
+
+    &.numbered-2 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '2';
+      }
+    }
+
+    &.numbered-3 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '3';
+      }
+    }
+
+    &.numbered-4 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '4';
+      }
+    }
+
+    &.numbered-5 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '5';
+      }
+    }
+
+    &.numbered-6 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '6';
+      }
+    }
+
+    &.numbered-7 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '7';
+      }
+    }
+
+    &.numbered-8 {
+      background-color: hsl(0, 0%, 100%);
+
+      &::before {
+        content: '8';
+      }
+    }
+  }
+}
