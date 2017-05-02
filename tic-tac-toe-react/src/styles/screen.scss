@@ -1,0 +1,50 @@
+@import 'utility';
+
+$base-text-size: 16px;
+$base-font-family: sans-serif;
+
+html {
+  @include full-height;
+}
+
+body {
+  margin: 0;
+  font: $base-text-size / 1 $base-font-family;
+  background-color: hsl(68, 59%, 83%);
+  color: hsl(270, 17%, 21%);
+}
+
+table {
+  margin: 4em auto;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  td {
+    border: thick solid hsl(270, 17%, 21%);
+    height: 100px;
+    width: 100px;
+    text-align: center;
+    font-size: 72px;
+
+    &.x {
+      color: hsl(282, 47%, 27%);
+
+      &::before {
+        content: 'X';
+      }
+    }
+
+    &.o {
+      color: hsl(127, 71%, 34%);
+
+      &::before {
+        content: 'O';
+      }
+    }
+  }
+}
+
+h1,
+h2 {
+  text-align: center;
+}

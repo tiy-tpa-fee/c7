@@ -6,8 +6,10 @@ public/app-*.js
 public/vendor-*.js
 public/screen-*.css
 public/index.html
-public/200.html
+
 
 # misc
 .DS_Store
 npm-debug.log
+
+
