@@ -1,0 +1,73 @@
+@import 'utility';
+
+html {
+  @include full-height;
+}
+
+body {
+  margin: 0;
+  font: $base-text-size / 1 $base-font-family;
+  color: lighten($theme-color-01, 30%);
+  background-color: $theme-color-01;
+}
+
+.App {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+header,
+main,
+footer {
+  max-width: 30em;
+}
+
+h1 {
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+ul.one-list {
+  @include reset-list;
+
+  font-family: $alt-font-family;
+
+  li {
+    margin: 0.2em;
+    align-items: flex-start;
+    display: flex;
+
+    &.completed {
+      opacity: 0.5;
+      text-decoration: line-through;
+    }
+  }
+}
+
+form {
+  align-items: flex-start;
+  display: flex;
+
+  input {
+    border: none;
+    padding: 0.3em 0.2em 0;
+    width: 100%;
+    color: $theme-color-02;
+    font-size: 1em;
+    line-height: 1.5em;
+    background-color: lighten($theme-color-01, 20%);
+    font-family: $alt-font-family;
+    opacity: 0.5;
+
+    &:focus {
+      outline: 0;
+      background-color: lighten($theme-color-01, 30%);
+      opacity: 1;
+    }
+  }
+}
