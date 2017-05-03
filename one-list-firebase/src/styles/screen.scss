@@ -7,8 +7,8 @@ html {
 body {
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
-  color: lighten($theme-color-01, 30%);
-  background-color: $theme-color-01;
+  color: lighten($theme-color, 40%);
+  background-color: $theme-color;
 }
 
 .App {
@@ -55,18 +55,18 @@ form {
 
   input {
     border: none;
-    padding: 0.3em 0.2em 0;
+    padding: 0.2em 0.2em 0;
     width: 100%;
-    color: $theme-color-02;
+    color: darken($theme-color, 30%);
     font-size: 1em;
     line-height: 1.5em;
-    background-color: lighten($theme-color-01, 20%);
+    background-color: lighten($theme-color, 20%);
     font-family: $alt-font-family;
     opacity: 0.5;
 
     &:focus {
       outline: 0;
-      background-color: lighten($theme-color-01, 30%);
+      background-color: lighten($theme-color, 30%);
       opacity: 1;
     }
   }
