@@ -39,12 +39,34 @@ ul.one-list {
 
   li {
     margin: 0.2em;
-    align-items: flex-start;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &.completed {
+    &.completed span {
       opacity: 0.5;
       text-decoration: line-through;
+    }
+
+    &:hover button {
+      visibility: visible;
+    }
+
+    button {
+      visibility: hidden;
+      background-color: transparent;
+      padding: 0 0 4px;
+      border: none;
+      color: lighten($theme-color, 40%);
+      font-size: 22px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:active {
+        color: darken($theme-color, 20%);
+      }
     }
   }
 }

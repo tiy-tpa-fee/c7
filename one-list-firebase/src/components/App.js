@@ -1,21 +1,32 @@
 import React from 'react'
 import cx from 'classnames'
+import _ from 'lodash'
+import db from '../db'
 
 class App extends React.Component {
   state = {
-    items: []
+    items: {}
   }
 
-  addItem (text) {
-    this.setState({
-      items: [...this.state.items, { text, completed: false }]
+  componentDidMount () {
+    db.ref('items').on('value', (snapshot) => {
+      this.setState({
+        items: snapshot.val()
+      })
     })
   }
 
-  toggle (index) {
-    const items = this.state.items.slice()
-    items[index].completed = !items[index].completed
-    this.setState({ items })
+  addItem (text) {
+    db.ref('items').push().set({ text, completed: false })
+  }
+
+  toggle (id) {
+    const completed = !this.state.items[id].completed
+    db.ref(`items/${id}`).update({ completed })
+  }
+
+  delete (id) {
+    db.ref(`items/${id}`).remove()
   }
 
   _submit = (event) => {
@@ -32,13 +43,11 @@ class App extends React.Component {
       </header>
       <main>
         <ul className='one-list'>
-          {this.state.items.map(({ text, completed }, i) =>
-            <li
-              className={cx({ completed })}
-              onClick={() => this.toggle(i)}
-              children={text}
-              key={i}
-            />
+          {_.map(this.state.items, ({ completed, text }, key) =>
+            <li className={cx({ completed })} key={key}>
+              <span onClick={() => this.toggle(key)}>{text}</span>
+              <button onClick={() => this.delete(key)}>&times;</button>
+            </li>
           )}
         </ul>
         <form onSubmit={this._submit}>
