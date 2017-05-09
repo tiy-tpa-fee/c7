@@ -15,21 +15,21 @@ body {
   align-items: center;
   display: flex;
   flex-direction: column;
-}
 
-main {
-  flex: 1;
-}
+  main {
+    flex: 1;
+  }
 
-header,
-main,
-footer {
-  max-width: 30em;
-}
+  header,
+  main,
+  footer {
+    max-width: 30em;
+  }
 
-h1 {
-  font-weight: 300;
-  text-transform: uppercase;
+  h1 {
+    font-weight: 300;
+    text-transform: uppercase;
+  }
 }
 
 ul.one-list {
@@ -39,35 +39,59 @@ ul.one-list {
 
   li {
     margin: 0.2em;
-    align-items: flex-start;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &.completed {
+    &.complete span {
       opacity: 0.5;
       text-decoration: line-through;
+    }
+
+    &:hover button {
+      visibility: visible;
+    }
+
+    button {
+      visibility: hidden;
+      background-color: transparent;
+      padding: 0 0 4px;
+      border: none;
+      color: lighten($theme-color, 40%);
+      font-size: 22px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &:active {
+        color: darken($theme-color, 20%);
+      }
     }
   }
 }
 
-form {
-  align-items: flex-start;
-  display: flex;
+.List {
+  form {
+    align-items: flex-start;
+    display: flex;
 
-  input {
-    border: none;
-    padding: 0.2em 0.2em 0;
-    width: 100%;
-    color: darken($theme-color, 30%);
-    font-size: 1em;
-    line-height: 1.5em;
-    background-color: lighten($theme-color, 20%);
-    font-family: $alt-font-family;
-    opacity: 0.5;
+    input {
+      border: none;
+      padding: 0.2em 0.2em 0;
+      width: 100%;
+      color: darken($theme-color, 30%);
+      font-size: 1em;
+      line-height: 1.5em;
+      background-color: lighten($theme-color, 20%);
+      font-family: $alt-font-family;
+      opacity: 0.5;
 
-    &:focus {
-      outline: 0;
-      background-color: lighten($theme-color, 30%);
-      opacity: 1;
+      &:focus {
+        outline: 0;
+        background-color: lighten($theme-color, 30%);
+        opacity: 1;
+      }
     }
   }
 }
