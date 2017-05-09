@@ -1,0 +1,57 @@
+.cart {
+  padding: 0.5em;
+  background-color: hsl(104, 81%, 64%);
+  transform: rotate(-2deg);
+
+  h3 {
+    margin-top: 0;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  tr.empty {
+    font-style: italic;
+    text-align: center;
+    opacity: 0.5;
+  }
+
+  td,
+  th {
+    padding: 0.25em;
+
+    &.item {
+      text-align: right;
+    }
+  }
+
+  form {
+    text-align: right;
+    padding-top: 1em;
+
+    &:hover {
+      text-align: left;
+    }
+  }
+
+  button {
+    position: relative;
+    right: -15px;
+    bottom: -10px;
+    background-color: hsl(282, 44%, 38%);
+    border: none;
+    padding: 0.5em;
+    font-size: 1.2em;
+    color: white;
+    text-shadow: 2px 2px 2px hsl(286, 94%, 13%);
+    transform: rotate(5deg);
+    transition: all 200ms ease-in-out;
+
+    &:hover {
+      transform: rotate(-3deg) scale(1.2);
+      background-color: hsl(282, 40%, 57%);
+      cursor: pointer;
+    }
+  }
+}

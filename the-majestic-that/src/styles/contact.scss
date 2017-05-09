@@ -1,0 +1,14 @@
+.contact {
+  form {
+    max-width: 400px;
+
+    p label {
+      display: block;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+    }
+  }
+}
