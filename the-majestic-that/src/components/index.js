@@ -1,3 +1,5 @@
 export Contact from './Contact'
 export Home from './Home'
 export Location from './Location'
+export Locations from './Locations'
+export Menu from './Menu'

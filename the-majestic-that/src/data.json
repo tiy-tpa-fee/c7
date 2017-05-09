@@ -1,0 +1,93 @@
+{
+  "locations": [
+    {
+      "slug": "st-pete",
+      "name": "Downtown St Petersburg",
+      "address": "260 1st Ave S, Suite 300, St Petersburg, FL, 33701",
+      "hours": [
+        { "days": "Mon-Fri", "hours": "11AM - 9PM" },
+        { "days": "Sat", "hours": "11AM - 12AM" },
+        { "days": "Sun", "hours": "CLOSED" }
+      ],
+      "mapPlaceId": "ChIJ2ckQoZzhwogR_sFtWCqwpWs"
+    },
+    {
+      "slug": "bradenton",
+      "name": "Bradenton",
+      "address": "Across the Street from Ellenton Outlets",
+      "hours": [
+        { "days": "Mon", "hours": "CLOSED" },
+        { "days": "Tue-Fri", "hours": "11AM - 7PM" },
+        { "days": "Sat", "hours": "11AM - 12AM" },
+        { "days": "Sun", "hours": "9AM - 2PM" }
+      ],
+      "mapPlaceId": "ChIJDWEZ1zX8VDARDHDTZoyjHXI"
+    }
+  ],
+  "menu": [
+    {
+      "name": "Appetizers",
+      "slug": "apps",
+      "items": [
+        {
+          "name": "Santa Fe Spring Rolls",
+          "description": "Beans and corn and stuff with some cool ranch sour creme dippin' sauwce",
+          "price": 450
+        },
+        {
+          "name": "Potato Skins",
+          "description": "More of that ranch sour creme sauwce on potatoes with bacon and cheese",
+          "price": 720
+        },
+        {
+          "name": "Monster Nachos",
+          "description": "Just like the ones at Cobb 10 Luxory Theater... you know the ones... yeah.",
+          "price": 1195
+        }
+      ]
+    },
+    {
+      "name": "Entrees",
+      "slug": "meals",
+      "items": [
+        {
+          "name": "Buffalo Wings",
+          "description": "Yeah, these are an appetizer. Stop, It's a meal. Price per wing.",
+          "price": 50
+        }
+      ]
+    },
+    {
+      "name": "Desserts",
+      "slug": "noms",
+      "items": [
+        {
+          "name": "Deep Fried Mars Bar",
+          "description": "Blame Glasgow",
+          "price": 699
+        },
+        {
+          "name": "Tiramisu",
+          "description": "Lady fingers, coffee, and creamy marscapone. Yum",
+          "price": 599
+        },
+        {
+          "name": "Baklava",
+          "description": "Flakey layers of pasty soaked in honey and well, basically god nectar",
+          "price": 599
+        }
+      ]
+    },
+    {
+      "name": "Dan's Specials",
+      "slug": "frugal",
+      "items": [
+        {
+          "name": "Sideways Pizza",
+          "description": "Because that's how you have to turn it to fit throught the door. Feeds a small army, or one drunk.",
+          "price": 2000
+        }
+      ]
+    }
+  ]
+}

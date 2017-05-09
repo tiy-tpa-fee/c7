@@ -1,29 +1,26 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link, NavLink, Switch } from 'react-router-dom'
 
-import { Home, Menu, Contact, Locations, Location } from '.'
+import { Contact, Home, Menu, Location, Locations } from '.'
 
 class App extends Component {
   render () {
     return <Router>
-      <div className='layout'>
+      <div className='App'>
         <h1><Link to='/'>The Majestic That</Link></h1>
         <nav>
           <ul>
             <li>
-              <Link to='/'>Home</Link>
+              <NavLink to='/' exact>Home</NavLink>
             </li>
             <li>
-              <Link to='/menu'>Menu</Link>
+              <NavLink to='/menu'>Menu</NavLink>
             </li>
             <li>
-              <Link to='/contact'>Contact Us</Link>
+              <NavLink to='/contact'>Contact Us</NavLink>
             </li>
             <li>
-              <Link to='/locations'>Locations</Link>
-            </li>
-            <li>
-              <Link to='/orders'>Order Online!</Link>
+              <NavLink to='/locations'>Locations</NavLink>
             </li>
           </ul>
         </nav>
