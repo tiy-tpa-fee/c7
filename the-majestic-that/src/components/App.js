@@ -29,8 +29,8 @@ class App extends Component {
             <Route exact path='/' component={Home} />
             <Route path='/menu' component={Menu} />
             <Route path='/contact' component={Contact} />
-            <Route path='/locations' component={Locations} />
             <Route path='/locations/:slug' component={Location} />
+            <Route path='/locations' component={Locations} />
           </Switch>
         </main>
         <footer>
