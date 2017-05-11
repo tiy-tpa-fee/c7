@@ -34,7 +34,7 @@ class CharacterList extends Component {
 
     return <ul className={styles.CharacterList}>
       {characters}
-      <li><button onClick={this._click}>Home</button></li>
+      <li className={styles.home}><button onClick={this._click}>🏠</button></li>
     </ul>
   }
 }
