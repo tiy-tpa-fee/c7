@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import MarkdownIt from 'markdown-it'
 import styles from '../styles/CharacterDetails.scss'
+
+const md = new MarkdownIt()
 
 class CharacterDetails extends Component {
   state = {
@@ -31,7 +34,7 @@ class CharacterDetails extends Component {
         const character = data.Character
         this.setState({
           title: character.name,
-          details: character.biography,
+          details: md.render(character.biography),
           image: character.image.url,
           id
         })
@@ -52,7 +55,7 @@ class CharacterDetails extends Component {
       <h2 className={styles.title}>{this.state.name}</h2>
       <h3>{this.props.foo}</h3>
       <img src={this.state.image} alt={this.state.name} />
-      <p>{this.state.details}</p>
+      <div className={styles.biography} dangerouslySetInnerHTML={{__html: this.state.details}} />
     </div>
   }
 }
