@@ -1,0 +1,122 @@
+@import 'utility';
+
+html {
+  @include full-height;
+}
+
+body {
+  margin: 0;
+  font: $base-text-size / 1 $base-font-family;
+  background-color: lighten($theme-primary-color, 50%);
+  color: darken($theme-primary-color, 20%);
+}
+
+nav {
+  background-color: $theme-primary-color;
+  color: lighten($theme-primary-color, 70%);
+  padding: 0.25em 0.5em;
+
+  ul {
+    @include reset-list;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+
+    &:hover {
+      color: $theme-secondary-color;
+    }
+  }
+
+  h1 {
+    margin: 0;
+  }
+}
+
+aside.menu {
+  width: 160px;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: transparentize(darken($theme-primary-color, 20%), 0.1);
+  color: lighten($theme-primary-color, 50%);
+  padding: 1em;
+  box-shadow: 0 0 20px transparentize($theme-primary-color, 0.5);
+  transform: translateX(0);
+  transition: transform 200ms ease;
+
+  header {
+    text-align: right;
+  }
+
+  button {
+    background-color: transparent;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+
+    &:hover {
+      color: $theme-secondary-color;
+    }
+  }
+
+  section {
+    > ul {
+      @include reset-list;
+    }
+  }
+
+  &.hidden {
+    transform: translateX(-160px);
+    box-shadow: 0 0 0 transparent;
+  }
+}
+
+.notice {
+  border: thick solid darken($theme-secondary-color, 30%);
+  background-color: lighten($theme-secondary-color, 10%);
+  position: fixed;
+  top: 20%;
+  left: calc(50% - 200px);
+  width: 400px;
+  text-align: center;
+
+  button {
+    float: right;
+    padding: 0.5em;
+    border: 0;
+    background-color: transparent;
+  }
+
+  &.warn {
+    border: thick solid darken(red, 20%);
+    background-color: lighten(red, 40%);
+  }
+}
+
+.overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.wrapper {
+  transform: translateX(0);
+  transition: transform 200ms ease;
+
+  &.menu {
+    transform: translateX(160px);
+  }
+}
