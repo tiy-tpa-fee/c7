@@ -11,11 +11,28 @@ class CharacterDetails extends Component {
   updateCharacter () {
     const id = this.props.match.params.id
     if (id !== this.state.id) {
-      window.fetch(`/characters/${id}.json`)
+      window.fetch(`https://api.graphcms.com/simple/v1/cj2kguqlg4wzs013019o9nxge`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          query: `query {
+            Character(id: "${id}") {
+              name
+              biography
+              image {
+                url
+              }
+            }
+          }`
+        })
+      })
       .then(res => res.json())
-      .then(data => {
+      .then(({ data }) => {
+        const character = data.Character
         this.setState({
-          ...data,
+          title: character.name,
+          details: character.biography,
+          image: character.image.url,
           id
         })
       })

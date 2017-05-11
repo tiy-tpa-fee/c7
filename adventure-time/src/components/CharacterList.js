@@ -12,11 +12,22 @@ class CharacterList extends Component {
   }
 
   componentDidMount () {
-    window.fetch('/characters.json')
+    window.fetch('https://api.graphcms.com/simple/v1/cj2kguqlg4wzs013019o9nxge', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        query: `query {
+          allCharacters(filter: { isPublished: true }) {
+            id
+            name
+          }
+        }`
+      })
+    })
       .then(res => res.json())
-      .then(data => {
+      .then(({ data }) => {
         this.setState({
-          characters: data
+          characters: data.allCharacters
         })
       })
   }
