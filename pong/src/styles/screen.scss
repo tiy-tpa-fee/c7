@@ -10,4 +10,47 @@ html {
 body {
   margin: 0;
   font: $base-text-size / 1 $base-font-family;
+  background-color: #333;
+  color: #eee;
+}
+
+.Menu {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  button {
+    font-size: 32px;
+    background-color: #eee;
+    border: thick solid #eee;
+    color: #333;
+    margin: 15px;
+
+    &:active {
+      background-color: #333;
+      color: #eee;
+    }
+
+    &:focus {
+      outline: none;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+}
+
+.Game {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  canvas {
+    background-color: #000;
+  }
 }
